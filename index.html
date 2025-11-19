@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>综合服务平台</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "微软雅黑", sans-serif;
+        }
+        body {
+            background: url("https://picsum.photos/1920/1080") no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 50px 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+        .card {
+            background-color: rgba(255, 255, 255, 0.85);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        .card-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+        .icon-attendance { color: #409EFF; }
+        .icon-report { color: #67C23A; }
+        .icon-flow { color: #F56C6C; }
+        .card-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        .card-desc {
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+        .btn-attendance { background-color: #409EFF; color: white; }
+        .btn-report { background-color: #67C23A; color: white; }
+        .btn-flow { background-color: #F56C6C; color: white; }
+        .btn:hover { opacity: 0.9; }
+        .sidebar {
+            position: fixed;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            display: none; /* 手机端默认隐藏侧边栏 */
+        }
+        @media (min-width: 768px) {
+            .sidebar {
+                display: flex; /* 桌面端显示侧边栏 */
+            }
+        }
+        .sidebar-item {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .sidebar-item:hover {
+            transform: translateX(5px);
+        }
+        /* 二维码区域样式 */
+        .qr-section {
+            margin-top: 40px;
+            margin-bottom: 30px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            width: 100%;
+        }
+        .contact-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            justify-content: center;
+        }
+        .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .contact-name {
+            font-size: 16px;
+            font-weight: 500;
+        }
+        .contact-status {
+            font-size: 12px;
+            color: #666;
+        }
+        .qr-code {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 15px;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .qr-desc {
+            font-size: 14px;
+            color: #555;
+        }
+        /* 手机端适配 */
+        @media (max-width: 767px) {
+            .container {
+                padding: 20px 10px;
+                gap: 20px;
+            }
+            .card {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-item" onclick="window.location.href='https://sx.jmkj.xyz/Att%20Random%20Time/cs/kaoq.html'">
+            <i class="fas fa-clock"></i> 考勤
+        </div>
+        <div class="sidebar-item" onclick="window.location.href='https://sx.jmkj.xyz/sxbg/sxbg/'">
+            <i class="fas fa-file-alt"></i> 报告
+        </div>
+        <div class="sidebar-item" onclick="window.location.href='https://yf.blwl.fun/ls'">
+            <i class="fas fa-chart-line"></i> 流水
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-icon icon-attendance">
+                <i class="fas fa-clock"></i>
+            </div>
+            <h2 class="card-title">智能考勤生成系统</h2>
+            <p class="card-desc">快速生成智能考勤记录，便捷高效管理考勤数据。</p>
+            <a href="https://sx.jmkj.xyz/Att%20Random%20Time/cs/kaoq.html" class="btn btn-attendance">前往使用</a>
+        </div>
+        <div class="card">
+            <div class="card-icon icon-report">
+                <i class="fas fa-file-alt"></i>
+            </div>
+            <h2 class="card-title">实习报告系统周月日报模板</h2>
+            <p class="card-desc">提供丰富的实习报告周月日报模板，助力实习总结。</p>
+            <a href="https://sx.jmkj.xyz/sxbg/sxbg/" class="btn btn-report">前往使用</a>
+        </div>
+        <div class="card">
+            <div class="card-icon icon-flow">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            <h2 class="card-title">流水参考</h2>
+            <p class="card-desc">专业的流水参考工具，为你提供清晰的流水数据分析。</p>
+            <a href="https://yf.blwl.fun/ls" class="btn btn-flow">前往使用</a>
+        </div>
+    </div>
+
+    <!-- 二维码区域 -->
+    <div class="qr-section">
+        <div class="contact-header">
+            <img src="./头像.jpg" alt="头像" class="avatar">
+            <div>
+                <div class="contact-name">小阳</div>
+                <div class="contact-status">（中午回复）</div>
+            </div>
+        </div>
+        <div class="qr-code">
+            <!-- 此处替换为实际二维码图片路径 -->
+            <img src="./小阳.png" alt="微信二维码" width="100%" height="100%">
+        </div>
+        <p class="qr-desc">扫一扫上面的二维码图案，加我为朋友。</p>
+    </div>
+</body>
+</html>
